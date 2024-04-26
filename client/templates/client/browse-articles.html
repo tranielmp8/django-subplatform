@@ -1,0 +1,36 @@
+
+{% extends 'client/navbar.html' %}
+
+{% block content %}
+
+  <br>
+  
+  {% for article in AllClientArticles %}
+    <div class="container bg-white shadow-md p-5 form-layout mb-4" >
+      <h3>{{ article.title }}</h3>
+      <br>
+      {% comment %} can wrap around elements to style if need be {% endcomment %}
+      <p>{{article.content}}</p> 
+      <br>
+
+      <div class="mt-4 text-muted">
+        Date Posted: {{article.date_posted}}
+
+      </div>
+
+      <br>
+      <br>
+      
+      {% if article.is_premium == True %}
+       <p>🌟 <strong/>Premium</strong></p> 
+      {% elif article.is_premium == False %}
+      <p> <strong/>Standard</strong> </p> 
+      {% endif %}
+
+     
+
+    </div>
+
+  {% endfor %}
+
+{% endblock %}

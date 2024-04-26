@@ -1,0 +1,25 @@
+{% extends 'client/navbar.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout text-center">
+    <h5> 👋 Welcome, {{ user.first_name }}</h5>
+    <hr>
+    <p class="text-muted">
+      As a client you will have the ability browse through standard or premium articles.
+    </p>
+  </div>
+  
+  <br>
+
+  <div class="container bg-white shadow-md p-5 form-layout text-center">
+    <h5>Subscription Plan</h5>  
+    <p class="text-muted"> {{SubPlan}} </p>
+  </div>
+
+
+
+{% endblock %}

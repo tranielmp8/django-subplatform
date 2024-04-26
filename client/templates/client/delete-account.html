@@ -1,0 +1,25 @@
+
+
+{% extends 'client/navbar.html' %}
+
+{% block content %}
+
+<br>
+<div class="container bg-white shadow-md p-5 form-layout" >
+  <h3 class="text-center">Delete Client Account </h3>
+  <hr>
+  <br>
+
+  <form method="POST" autocomplete="off">
+    {% csrf_token %}
+
+    <input class="btn btn-danger w-100" type="submit" value="Delete Account">
+  </form>
+
+  <br>
+
+  <a href="{% url 'client-dashboard' %}"  type="submit">Return to dashboard</a>
+
+
+</div>
+{% endblock %} 

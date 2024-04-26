@@ -1,0 +1,106 @@
+
+{% extends 'client/navbar.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<!-- Update form here -->
+<div class="container bg-white shadow-md p-5 form-layout mt-4" >
+  <h3 class="text-center" >Account Details </h3>
+  <hr>
+  <p class="text-muted"> Update details below: </p>
+  
+  <br>
+
+  <form method="POST" autocomplete="off">
+    {% csrf_token %}
+
+    {{ UpdateUserForm|crispy }}
+    <br>
+    <br>
+    <input class="btn btn-warning w-100" type="submit" value="Update Account Details">
+
+  </form>
+</div>
+
+<!-- Browse Subscription Plans -->
+{% if SubscriptionID %}
+
+<!-- display no subscription plans link if a subscription is already set up -->
+
+    <div class="container bg-white shadow-md p-5 mt-3 form-layout text-center">
+      <h5> Update your Subscription </h5>
+      <hr>
+      <p class="text-muted text-center">Upgrade or Downgrade your subscription below: </p>
+      <br>
+      <a id="updateButton" class="btn btn-info w-100" type="button" href="{% url 'update-subscription' SubscriptionID %}">
+        -> Update Subscription
+      </a>
+    </div>
+    <br>
+    
+    <br>
+    <!-- Cancel and Delete Subscription -->
+    <div class="container bg-white shadow-md p-5 mt-3 form-layout text-center">
+      <h5> Cancel your Subscription </h5>
+      <hr>
+      <p class="text-muted">Permantely Delete Subscription</p>
+      <br>
+      <a id="deleteButton" class="btn btn-danger w-100" type="button" href="{% url 'delete-subscription' SubscriptionID %}">
+        -> Cancel Subscription
+      </a>
+    </div>
+    <br>
+
+  {% else %}
+
+  <div class="container bg-white shadow-md p-5 mt-3 form-layout text-center">
+    <h5 class="text-center"> Browse Subscription Plans </h5>
+    <hr>
+    <p class="text-muted">Check all the available subscription plans</p>
+    <a  class="btn btn-success w-100" type="button" href="{% url 'subscription-plans' %}">
+      -> Subscription Plans
+    </a>
+  </div>
+  {% endif %}
+
+  <br>
+  <div class="container bg-white shadow-md p-5 form-layout" >
+    <h3 class="text-center" >Account Deletion</h3>
+    <hr>
+    <a class="btn btn-danger w-100" type="button"  href="{% url 'delete-client-account' %}">Delete Account</a>
+  
+  </div>
+
+  <br>
+  <br>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" > </script> 
+  <script >
+    $(document).ready(function (){
+      $("#deleteButton").on("click", function() {
+        $(this).text("Processing...");
+
+      });
+
+    });
+
+  /* Update Button Text Change */
+    $(document).ready(function (){
+      $("#updateButton").on("click", function() {
+        $(this).text("Processing...");
+
+      });
+
+    });
+
+
+  </script>
+
+
+{% endblock %}
+
+
+
+

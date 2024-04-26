@@ -1,0 +1,23 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <title>Email Failed</title>
+</head>
+<body>
+  <div class="container bg-white shadow-md p-5 form-layout mt-5 ">
+    <h4> Email NOT verified! <h4>
+      <hr>
+    <p>
+      Your email has not been verified. 
+    </p>
+
+    <a href="{% url 'register' %}">Recreate your account</a>
+  </div>
+</body>
+</html>

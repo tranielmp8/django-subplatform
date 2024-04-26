@@ -27,9 +27,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-subplatform-production.up.railway.app', '*']
 
-# CSRF_TRUSTED_ORIGINS = [] # will be the domain name
+CSRF_TRUSTED_ORIGINS = ['django-subplatform-production.up.railway.app'] # will be the domain name
 
 
 # Application definition

@@ -1,0 +1,41 @@
+
+{% extends 'writer/navbar.html' %}
+
+{% block content %}
+
+  <br>
+  
+  {% for article in AllArticles %}
+    <div class="container bg-white shadow-md p-5 form-layout mb-4" >
+      <h3>{{ article.title }}</h3>
+      <hr>
+      <br>
+      {% comment %} can wrap around elements to style if need be {% endcomment %}
+      {{article.content}}
+      <br>
+
+      {{article.date_posted}}
+
+      <br>
+      <br>
+      
+      {% if article.is_premium == True %}
+        🌟 <strong/>Premium</strong>
+      {% elif article.is_premium == False %}
+        <strong/>Standard</strong>
+      {% endif %}
+
+      <hr>
+      <a class="btn btn-warning w-100" href="{% url 'update-article' article.id %}" > Update Article </a>
+      <br>
+      <br>
+      <a class="btn btn-danger w-100" href="{% url 'delete-article' article.id %}" > Delete Article </a>
+
+    </div>
+
+  {% endfor %}
+
+{% endblock %}
+
+
+
